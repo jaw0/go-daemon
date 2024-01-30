@@ -1,0 +1,17 @@
+
+run go program as a daemon in the background
+
+
+example:
+
+    func main(){
+        var foreground bool
+
+	flag.BoolVar(&foreground, "f", false, "run in foreground")
+	flag.Parse()
+
+	if !foreground {
+		daemon.Ize( daemon.WithPidFile("/var/run/program.pid") )
+	}
+
+
